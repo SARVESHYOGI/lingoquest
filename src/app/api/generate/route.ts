@@ -5,8 +5,20 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 export async function POST(request: Request) {
   try {
-    const { prompt } = await request.json();
+    // const { prompt } = await request.json();
+    const { language, difficulty, theme, input } = await request.json();
+    
+  const prompt = `
+You are a language storytelling assistant.
 
+Write a short ${difficulty} story in ${language}.
+The theme is: ${theme}.
+Begin the story with this user input: "${input}"
+Continue the story in an immersive and engaging way for a learner.
+
+At the end, include some vocabulary that would help the reader.
+`;
+    console.log("Generated prompt:", prompt);
     if (!prompt) {
       return NextResponse.json({ error: "Prompt is required." }, { status: 400 });
     }
