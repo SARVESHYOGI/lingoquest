@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import StoryPage from "./story/page";
+import Story from "../components/Story";
 import { motion } from "motion/react";
 interface Question {
   questionText: string;
@@ -36,7 +36,7 @@ export default function Home() {
 
   const handleAnswer = (answer: string) => {
     setAnswers((prev) => [...prev, answer]);
-    setInputValue(""); // Reset input
+    setInputValue("");
     setCurrInd((prev) => prev + 1);
   };
 
@@ -98,7 +98,7 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="w-full flex flex-col items-center"
         >
-          <StoryPage story={story} />
+          <Story story={story} />
           <button
             className="mt-6 px-4 py-2 bg-gray-300 text-gray-800 rounded-lg shadow hover:bg-gray-400 transition-all"
             onClick={() => {

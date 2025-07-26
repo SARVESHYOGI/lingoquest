@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import DecryptedText from "@/components/DecryptedText";
 import { motion } from "motion/react";
@@ -6,7 +6,7 @@ interface StoryPageProps {
   story: string;
 }
 
-export default function StoryPage({ story }: StoryPageProps) {
+export default function Story({ story }: StoryPageProps) {
   return (
     <div className="flex flex-col items-center justify-center bg-gray-50">
       <div className="text-2xl font-bold mb-4 text-gray-800">
